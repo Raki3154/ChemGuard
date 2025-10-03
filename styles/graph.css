@@ -1,0 +1,360 @@
+:root {
+            --primary: #1e6fba;
+            --secondary: #0a2a4a;
+            --accent: #4fc3f7;
+            --dark: #0a1929;
+            --light: #e3f2fd;
+            --danger: #f44336;
+            --success: #4caf50;
+            --navy: #0a2a4a;
+            --navy-light: #1a3a5a;
+            --white-glow: rgba(255, 255, 255, 0.8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+		body {
+            background: linear-gradient(135deg, #0a1929 0%, #0a2a4a 50%, #1a3a5a 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+		   body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(30, 111, 186, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(79, 195, 247, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+                 header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(10, 25, 41, 0.85);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+        }
+			
+			header h2 {
+				color: #66fcf1;
+				margin: 0;
+				font-size: 1.8rem;
+			}
+            
+            .nav-links {
+                display: flex;
+                gap: 25px;
+            }
+
+            .nav-links a {
+                color: #c5c6c7;
+                text-decoration: none;
+                padding: 10px 20px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover {
+                background: #45a29e;
+                color: #0b0c10;
+                transform: translateY(-2px);
+            }
+
+            .controls {
+                background: #1f2833;
+                padding: 25px;
+                border-radius: 15px;
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+                border: 1px solid rgba(102, 252, 241, 0.1);
+            }
+
+            .filter-group {
+                display: flex;
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .filter-group label {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+
+            .filter-group label:hover {
+                color: #66fcf1;
+            }
+
+            .filter-group input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+                cursor: pointer;
+            }
+
+            .status-indicator {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                display: inline-block;
+            }
+
+            .status-normal {
+                background: #2ecc71;
+                box-shadow: 0 0 10px #2ecc71;
+            }
+
+            .status-warning {
+                background: #f39c12;
+                box-shadow: 0 0 10px #f39c12;
+            }
+
+            .status-critical {
+                background: #e74c3c;
+                box-shadow: 0 0 10px #e74c3c;
+            }
+
+            .btn, .report-btn {
+                background: linear-gradient(135deg, #45a29e 0%, #66fcf1 100%);
+                color: #0b0c10;
+                text-decoration: none;
+                padding: 12px 25px;
+                border-radius: 8px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .btn:hover, .report-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(102, 252, 241, 0.4);
+            }
+
+            .charts-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 25px;
+                margin-bottom: 30px;
+            }
+
+            .chart-card {
+                background: #1f2833;
+                border-radius: 15px;
+                padding: 25px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+                border: 1px solid rgba(102, 252, 241, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .chart-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 40px rgba(102, 252, 241, 0.2);
+            }
+
+            .chart-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .chart-title {
+                color: #66fcf1;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .chart-value {
+                color: #c5c6c7;
+                font-size: 24px;
+                font-weight: 700;
+            }
+
+            .chart-container {
+                position: relative;
+                height: 250px;
+                width: 100%;
+            }
+
+            /* Report Modal Styles */
+            .report-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.8);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(5px);
+            }
+            
+            .report-modal-content {
+                background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%);
+                padding: 40px;
+                border-radius: 20px;
+                width: 450px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+                border: 1px solid rgba(102, 252, 241, 0.2);
+            }
+            
+            .report-modal h3 {
+                margin-top: 0;
+                color: #66fcf1;
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 30px;
+                font-weight: 600;
+            }
+            
+            .form-group {
+                margin-bottom: 25px;
+            }
+            
+            .form-group label {
+                display: block;
+                margin-bottom: 12px;
+                color: #c5c6c7;
+                font-weight: 500;
+                font-size: 14px;
+            }
+            
+            .form-group select {
+                width: 100%;
+                padding: 12px 15px;
+                background: #0b0c10;
+                border: 1px solid #45a29e;
+                border-radius: 8px;
+                color: #c5c6c7;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+            
+            .form-group select:focus {
+                outline: none;
+                border-color: #66fcf1;
+                box-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+            }
+            
+            .modal-buttons {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 30px;
+                gap: 15px;
+            }
+            
+            .modal-btn {
+                padding: 12px 25px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                flex: 1;
+                font-size: 14px;
+            }
+            
+            .btn-generate {
+                background: linear-gradient(135deg, #45a29e 0%, #66fcf1 100%);
+                color: #0b0c10;
+            }
+            
+            .btn-generate:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(102, 252, 241, 0.4);
+            }
+            
+            .btn-cancel {
+                background: #c5c6c7;
+                color: #0b0c10;
+            }
+            
+            .btn-cancel:hover {
+                background: #e74c3c;
+                color: white;
+                transform: translateY(-2px);
+            }
+
+            .chatbot-trigger {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, #45a29e 0%, #66fcf1 100%);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #0b0c10;
+                font-size: 24px;
+                cursor: pointer;
+                box-shadow: 0 8px 25px rgba(102, 252, 241, 0.4);
+                transition: all 0.3s ease;
+                z-index: 100;
+            }
+
+            .chatbot-trigger:hover {
+                transform: scale(1.1) rotate(10deg);
+                box-shadow: 0 12px 35px rgba(102, 252, 241, 0.6);
+            }
+
+            @media (max-width: 768px) {
+                .charts-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .controls {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                
+                .filter-group {
+                    justify-content: center;
+                }
+                
+                header {
+                    flex-direction: column;
+                    gap: 15px;
+                    text-align: center;
+                }
+                
+                .report-modal-content {
+                    width: 90%;
+                    margin: 20px;
+                }
+            }

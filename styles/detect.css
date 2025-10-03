@@ -1,0 +1,234 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0a1929 0%, #0a2a4a 50%, #1a3a5a 100%);
+    color: white;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #0a1929 0%, #0a2a4a 50%, #1a3a5a 100%);
+    background-attachment: fixed;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #e3f2fd;
+}
+
+/* Issue Box Styles */
+.issue-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin: 1rem auto;
+    max-width: 600px;
+    text-align: left;
+    border-left: 4px solid #4fc3f7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.issue-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.issue-row input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.issue-label {
+    font-size: 1.2rem;
+    color: #e3f2fd;
+}
+
+/* Progress Bar Styles */
+.progress {
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-top: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4fc3f7, #1e6fba);
+    border-radius: 12px;
+    width: 0%;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+.sim-options {
+    margin-bottom: 1rem;
+}
+
+.option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.option-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.option-group label:hover {
+    background: rgba(79, 195, 247, 0.2);
+}
+
+.option-group input[type="radio"] {
+    transform: scale(1.2);
+}
+
+/* Button Styles */
+.btn {
+    background: linear-gradient(135deg, #4fc3f7, #1e6fba);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 111, 186, 0.4);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(30, 111, 186, 0.6);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #4fc3f7;
+    color: #4fc3f7;
+}
+
+.btn-outline:hover {
+    background: rgba(79, 195, 247, 0.1);
+}
+
+/* AI Response Styles */
+.ai-response {
+    background: rgba(15, 40, 70, 0.7);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.muted {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.5rem 0;
+}
+
+/* Grid Layout */
+.grid {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.grid > div {
+    flex: 1;
+}
+
+/* Chatbot Trigger */
+.chatbot-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4fc3f7, #1e6fba);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(30, 111, 186, 0.5);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.chatbot-trigger:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(30, 111, 186, 0.7);
+}
+
+.chatbot-trigger i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .grid {
+        flex-direction: column;
+    }
+    
+    .option-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    .issue-box {
+        padding: 1rem;
+    }
+}
+
+/* Animation for cards */
+.card, .issue-box {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
